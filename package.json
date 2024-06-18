@@ -1,0 +1,12 @@
+{
+  "name": "Age Calculator",
+  "version": "1.0.0",
+  "description": "App to calculate age",
+  "scripts": {
+    "dev": "tailwindcss -i ./css/input.css -o ./css/style.css --watch "
+  },
+  "author": "arshGoyalDev",
+  "devDependencies": {
+    "tailwindcss": "^3.4.4"
+  }
+}
