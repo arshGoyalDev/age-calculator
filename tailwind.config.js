@@ -24,6 +24,13 @@ module.exports = {
       borderRadius: {
         "4xl": "6.5rem",
       },
+      fontSize: {
+        "4xl": "3.5rem",
+        "5xl": "5rem",
+      },
+      letterSpacing: {
+        "xl": "0.8rem"
+      }
     },
   },
   plugins: [],
