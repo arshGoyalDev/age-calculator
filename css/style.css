@@ -655,24 +655,8 @@ video {
   inset: -0.25rem;
 }
 
-.-top-8{
-  top: -2rem;
-}
-
 .end-1{
   inset-inline-end: 0.25rem;
-}
-
-.left-1{
-  left: 0.25rem;
-}
-
-.left-1\/2{
-  left: 50%;
-}
-
-.-top-1\/2{
-  top: -50%;
 }
 
 .isolate{
@@ -681,10 +665,6 @@ video {
 
 .isolation-auto{
   isolation: auto;
-}
-
-.-z-10{
-  z-index: -10;
 }
 
 .z-10{
@@ -733,16 +713,6 @@ video {
 
 .clear-none{
   clear: none;
-}
-
-.my-20{
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-}
-
-.my-14{
-  margin-top: 3.5rem;
-  margin-bottom: 3.5rem;
 }
 
 .my-12{
@@ -853,6 +823,14 @@ video {
   display: none;
 }
 
+.h-0{
+  height: 0px;
+}
+
+.h-0\.5{
+  height: 0.125rem;
+}
+
 .h-16{
   height: 4rem;
 }
@@ -864,18 +842,6 @@ video {
 .h-max{
   height: -moz-max-content;
   height: max-content;
-}
-
-.h-1{
-  height: 0.25rem;
-}
-
-.h-0{
-  height: 0px;
-}
-
-.h-0\.5{
-  height: 0.125rem;
 }
 
 .min-h-screen{
@@ -1850,10 +1816,6 @@ video {
   border-width: 2px;
 }
 
-.border-4{
-  border-width: 4px;
-}
-
 .border-x{
   border-left-width: 1px;
   border-right-width: 1px;
@@ -1917,11 +1879,6 @@ video {
   border-color: hsl(0 0% 86% / var(--tw-border-opacity));
 }
 
-.border-neutral-offWhite{
-  --tw-border-opacity: 1;
-  border-color: hsl(0 0% 94% / var(--tw-border-opacity));
-}
-
 .bg-\[rgb\(255\2c 0\2c 0\)\]{
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
@@ -1932,6 +1889,11 @@ video {
   background-color: hsl(0 0% 86% / var(--tw-bg-opacity));
 }
 
+.bg-neutral-offWhite{
+  --tw-bg-opacity: 1;
+  background-color: hsl(0 0% 94% / var(--tw-bg-opacity));
+}
+
 .bg-primary-purple{
   --tw-bg-opacity: 1;
   background-color: hsl(259 100% 65% / var(--tw-bg-opacity));
@@ -1940,11 +1902,6 @@ video {
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-neutral-offWhite{
-  --tw-bg-opacity: 1;
-  background-color: hsl(0 0% 94% / var(--tw-bg-opacity));
 }
 
 .decoration-slice{
@@ -2066,21 +2023,18 @@ video {
   padding-right: 1.5rem;
 }
 
+.py-16{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
 .py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-.pb-32{
-  padding-bottom: 8rem;
-}
-
-.pt-16{
-  padding-top: 4rem;
-}
-
-.pt-44{
-  padding-top: 11rem;
+.pt-24{
+  padding-top: 6rem;
 }
 
 .text-left{
@@ -2142,6 +2096,10 @@ video {
 .text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-4xl{
+  font-size: 3.5rem;
 }
 
 .font-bold{
@@ -2220,6 +2178,10 @@ video {
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
 }
 
+.tracking-xl{
+  letter-spacing: 0.8rem;
+}
+
 .text-\[\#336699\]\/\[\.35\]{
   color: rgb(51 102 153 / .35);
 }
@@ -2237,6 +2199,11 @@ video {
 .text-neutral-smokeyGray{
   --tw-text-opacity: 1;
   color: hsl(0 1% 44% / var(--tw-text-opacity));
+}
+
+.text-primary-purple{
+  --tw-text-opacity: 1;
+  color: hsl(259 100% 65% / var(--tw-text-opacity));
 }
 
 .underline{
@@ -2669,11 +2636,6 @@ body {
   text-align: center;
 }
 
-.focus\:border-primary-purple:focus{
-  --tw-border-opacity: 1;
-  border-color: hsl(259 100% 65% / var(--tw-border-opacity));
-}
-
 .focus\:hover\:text-center:hover:focus{
   text-align: center;
 }
@@ -2691,20 +2653,12 @@ body {
     height: 2.25rem;
   }
 
-  .sm\:h-12{
-    height: 3rem;
-  }
-
   .sm\:w-20{
     width: 5rem;
   }
 
   .sm\:w-9{
     width: 2.25rem;
-  }
-
-  .sm\:w-12{
-    width: 3rem;
   }
 
   .sm\:items-center{
@@ -2715,8 +2669,8 @@ body {
     padding: 3rem;
   }
 
-  .sm\:pt-0{
-    padding-top: 0px;
+  .sm\:pt-5{
+    padding-top: 1.25rem;
   }
 
   .sm\:underline{
@@ -2725,42 +2679,24 @@ body {
 }
 
 @media (min-width: 768px){
-  .md\:my-6{
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+  .md\:mb-0{
+    margin-bottom: 0px;
   }
 
-  .md\:my-2{
+  .md\:mt-2{
     margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .md\:mr-24{
-    margin-right: 6rem;
-  }
-
-  .md\:mr-16{
-    margin-right: 4rem;
-  }
-
-  .md\:h-20{
-    height: 5rem;
-  }
-
-  .md\:h-9{
-    height: 2.25rem;
-  }
-
-  .md\:w-20{
-    width: 5rem;
-  }
-
-  .md\:w-9{
-    width: 2.25rem;
   }
 
   .md\:justify-end{
     justify-content: flex-end;
+  }
+
+  .md\:text-5xl{
+    font-size: 5rem;
+  }
+
+  .md\:tracking-xl{
+    letter-spacing: 0.8rem;
   }
 }
 
