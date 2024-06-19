@@ -1,21 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <!-- css -->
-  <link rel="stylesheet" href="./css/style.css">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <title>Frontend Mentor | Age calculator app</title>
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body class="bg-gray-600">
-  </div>
-</body>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <title>Frontend Mentor | Age calculator app</title>
+  </head>
+  <body
+    class="bg-neutral-lightGrey flex justify-center items-center min-h-screen p-5"
+  >
+    <main class="bg-white px-6 pt-16 pb-32 rounded-3xl rounded-br-4xl w-screen overflow-hidden">
+      <div class="flex gap-4">
+        <div class="flex flex-col gap-2 w-1/4">
+          <label for="day" class="font-bold text-neutral-smokeyGray">
+            DAY</label
+          >
+          <input
+            type="text"
+            name="day"
+            id="day"
+            placeholder="DD"
+            class="max-w-40 w-full py-4 px-6 border-2 border-neutral-lightGrey rounded-md text-3xl font-extrabold text-neutral-offBlack focus:border-primary-purple"
+          />
+        </div>
+        <div class="flex flex-col gap-2 w-1/4">
+          <label for="month" class="font-bold text-neutral-smokeyGray"
+            >MONTH</label
+          >
+          <input
+            type="text"
+            name="month"
+            id="month"
+            placeholder="MM"
+            class="max-w-40 w-full py-4 px-6 border-2 border-neutral-lightGrey rounded-md text-3xl font-extrabold text-neutral-offBlack focus:border-primary-purple"
+          />
+        </div>
+        <div class="flex flex-col gap-2 w-1/4">
+          <label for="year" class="font-bold text-neutral-smokeyGray"
+            >YEAR</label
+          >
+          <input
+            type="text"
+            name="year"
+            id="year"
+            placeholder="YYYY"
+            class="max-w-40 w-full py-4 px-6 border-2 border-neutral-lightGrey rounded-md text-3xl font-extrabold text-neutral-offBlack focus:border-primary-purple"
+          />
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
