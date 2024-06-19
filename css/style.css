@@ -2178,10 +2178,6 @@ video {
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
 }
 
-.tracking-xl{
-  letter-spacing: 0.8rem;
-}
-
 .text-\[\#336699\]\/\[\.35\]{
   color: rgb(51 102 153 / .35);
 }
@@ -2689,6 +2685,10 @@ body {
 
   .md\:justify-end{
     justify-content: flex-end;
+  }
+
+  .md\:rounded-br-5xl{
+    border-bottom-right-radius: 12rem;
   }
 
   .md\:text-5xl{
