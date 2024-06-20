@@ -26,10 +26,12 @@
             DAY</label
           >
           <input
-            type="text"
+            type="number"
             name="day"
             id="day"
             placeholder="DD"
+            min="0"
+            max="31"
             class="max-w-40 w-full py-4 px-6 border-2 border-neutral-lightGrey rounded-md text-3xl font-extrabold text-neutral-offBlack hover:border-primary-purple cursor-pointer"
           />
         </div>
@@ -38,10 +40,12 @@
             >MONTH</label
           >
           <input
-            type="text"
+            type="number"
             name="month"
             id="month"
             placeholder="MM"
+            min="0"
+            max="12"
             class="max-w-40 w-full py-4 px-6 border-2 border-neutral-lightGrey rounded-md text-3xl font-extrabold text-neutral-offBlack hover:border-primary-purple cursor-pointer"
           />
         </div>
@@ -50,7 +54,7 @@
             >YEAR</label
           >
           <input
-            type="text"
+            type="number"
             name="year"
             id="year"
             placeholder="YYYY"
