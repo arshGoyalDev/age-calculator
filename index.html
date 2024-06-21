@@ -34,6 +34,11 @@
             max="31"
             class="max-w-40 w-full py-4 px-6 border-2 border-neutral-lightGrey rounded-md text-3xl font-extrabold text-neutral-offBlack hover:border-primary-purple cursor-pointer"
           />
+          <div>
+            <p class="text-primary-lightRed text-xs font-semibold italic opacity-0 invisible">Must be a valid day</p>
+            <p class="text-primary-lightRed text-xs font-semibold italic opacity-0 invisible">This field is required</p>
+          </div>
+
         </div>
         <div class="flex flex-col gap-2">
           <label for="month" class="font-bold text-neutral-smokeyGray"
@@ -46,8 +51,13 @@
             placeholder="MM"
             min="0"
             max="12"
-            class="max-w-40 w-full py-4 px-6 border-2 border-neutral-lightGrey rounded-md text-3xl font-extrabold text-neutral-offBlack hover:border-primary-purple cursor-pointer"
+            class="max-w-40 w-full py-4 px-6 border-2 border-neutral-lightGrey
+             rounded-md text-3xl font-extrabold text-neutral-offBlack hover:border-primary-purple cursor-pointer"
           />
+          <div>
+            <p class="text-primary-lightRed text-xs font-semibold italic opacity-0 invisible">Must be a valid month</p>
+            <p class="text-primary-lightRed text-xs font-semibold italic opacity-0 invisible">This field is required</p>
+          </div>
         </div>
         <div class="flex flex-col gap-2">
           <label for="year" class="font-bold text-neutral-smokeyGray"
@@ -60,9 +70,14 @@
             placeholder="YYYY"
             class="max-w-40 w-full py-4 px-6 border-2 border-neutral-lightGrey rounded-md text-3xl font-extrabold text-neutral-offBlack hover:border-primary-purple cursor-pointer"
           />
+          <div>
+            <p class="text-primary-lightRed text-xs font-semibold italic opacity-0 invisible">Must be in the past</p>
+            <p class="text-primary-lightRed text-xs font-semibold italic opacity-0 invisible">This field is required</p>
+          </div>
         </div>
       </div>
-      <div class="my-12 md:mt-2 md:mb-0 relative flex justify-center items-center md:justify-end">
+
+      <div class="mb-10 md:-mt-3 md:mb-0 relative flex justify-center items-center md:justify-end">
         <div class="w-full h-0.5 bg-neutral-offWhite absolute"></div>
         <button class="bg-primary-purple w-16 h-16 sm:w-20 sm:h-20 flex z-10 justify-center items-center rounded-full hover:bg-neutral-offBlack transition-colors">
           <img src="./assets/images/icon-arrow.svg" alt="arrow" class="w-7 h-7 sm:w-9 sm:h-9">
