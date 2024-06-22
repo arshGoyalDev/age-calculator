@@ -715,21 +715,12 @@ video {
   clear: none;
 }
 
-.my-12{
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+.mb-10{
+  margin-bottom: 2.5rem;
 }
 
 .mt-2{
   margin-top: 0.5rem;
-}
-
-.mb-12{
-  margin-bottom: 3rem;
-}
-
-.mb-10{
-  margin-bottom: 2.5rem;
 }
 
 .box-border{
@@ -2110,11 +2101,6 @@ video {
   font-size: 3.5rem;
 }
 
-.text-sm{
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
@@ -2219,14 +2205,14 @@ video {
   color: hsl(0 1% 44% / var(--tw-text-opacity));
 }
 
-.text-primary-purple{
-  --tw-text-opacity: 1;
-  color: hsl(259 100% 65% / var(--tw-text-opacity));
-}
-
 .text-primary-lightRed{
   --tw-text-opacity: 1;
   color: hsl(0 100% 67% / var(--tw-text-opacity));
+}
+
+.text-primary-purple{
+  --tw-text-opacity: 1;
+  color: hsl(259 100% 65% / var(--tw-text-opacity));
 }
 
 .underline{
@@ -2722,32 +2708,12 @@ input[type=number] {
 }
 
 @media (min-width: 768px){
-  .md\:mb-0{
-    margin-bottom: 0px;
-  }
-
-  .md\:mt-2{
-    margin-top: 0.5rem;
-  }
-
-  .md\:mt-0{
-    margin-top: 0px;
-  }
-
-  .md\:-mt-4{
-    margin-top: -1rem;
-  }
-
-  .md\:-mt-6{
-    margin-top: -1.5rem;
-  }
-
-  .md\:-mt-5{
-    margin-top: -1.25rem;
-  }
-
   .md\:-mt-3{
     margin-top: -0.75rem;
+  }
+
+  .md\:mb-0{
+    margin-bottom: 0px;
   }
 
   .md\:justify-end{
