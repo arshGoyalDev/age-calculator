@@ -1878,6 +1878,11 @@ video {
   border-color: hsl(0 0% 86% / var(--tw-border-opacity));
 }
 
+.border-primary-lightRed{
+  --tw-border-opacity: 1;
+  border-color: hsl(0 100% 67% / var(--tw-border-opacity));
+}
+
 .bg-\[rgb\(255\2c 0\2c 0\)\]{
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
