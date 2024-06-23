@@ -8,31 +8,39 @@ const calBtn = document.querySelector(".cal-btn");
 
 calBtn.addEventListener("click", (e) => {
   errorEmpty();
-})
+});
 
-//empty error
+// Error Type 1 = empty error
 
-const errorEmpty = function() {
-  day.value === "" ? emptyErrorStyle(day,true) : emptyErrorStyle(day, false);
-  month.value === "" ? emptyErrorStyle(month, true) : emptyErrorStyle(month, false);
-  year.value === "" ? emptyErrorStyle(year, true) : emptyErrorStyle(year, false);
-}
+const emptyErrorText = "This field is required";
 
-const emptyErrorStyle = function (el, errorState) {
+const errorEmpty = function () {
+  day.value === "" ? toggleError(day, true, emptyErrorText) : toggleError(day);
+  month.value === ""
+    ? toggleError(month, true, emptyErrorText)
+    : toggleError(month);
+  year.value === ""
+    ? toggleError(year, true, emptyErrorText)
+    : toggleError(year);
+};
+
+// toggleError
+
+const toggleError = function (el, errorState = false, errorText = "") {
   const label = el.parentElement.querySelector("label");
-  const errorText = el.parentElement.querySelector(".error-text");
+  const errorTextCont = el.parentElement.querySelector(".error-text");
 
   if (errorState) {
     el.classList.add("border-primary-lightRed");
     el.classList.remove("border-neutral-lightGrey");
     label.classList.add("text-primary-lightRed");
     label.classList.remove("text-neutral-smokeyGray");
-    errorText.textContent = "This field is required"    
   } else {
     el.classList.remove("border-primary-lightRed");
-    el.classList.add("border-neutral-lightGrey");    
+    el.classList.add("border-neutral-lightGrey");
     label.classList.remove("text-primary-lightRed");
     label.classList.add("text-neutral-smokeyGray");
-    errorText.textContent = ""    
   }
-}
+
+  errorTextCont.textContent = errorText;
+};
