@@ -6,7 +6,13 @@ const year = document.querySelector("#year");
 
 const calBtn = document.querySelector(".cal-btn");
 
+let errorDay = "";
+let errorMonth = "";
+let errorYear = "";
+
 calBtn.addEventListener("click", (e) => {
+  errorEmpty();
+  errorInvalid();
   // if (errorEmpty()) {
   //   console.log("error");
   // } else if (errorInvalid()) {
@@ -21,21 +27,15 @@ calBtn.addEventListener("click", (e) => {
 const emptyErrorText = "This field is required";
 
 const errorEmpty = function () {
-  let error = false;
-
   day.value === ""
-    ? (toggleError(day, true, emptyErrorText), (error = true))
-    : (toggleError(day), (error = false));
+    ? (toggleError(day, true, emptyErrorText), (errorDay = "empty"))
+    : (toggleError(day), (errorDay = ""));
   month.value === ""
-    ? (toggleError(month, true, emptyErrorText), (error = true))
-    : toggleError(month),
-    (error = false);
+    ? (toggleError(month, true, emptyErrorText), (errorMonth = "empty"))
+    : (toggleError(month), (errorMonth = ""));
   year.value === ""
-    ? (toggleError(year, true, emptyErrorText), (error = true))
-    : toggleError(year),
-    (error = false);
-
-  return error;
+    ? (toggleError(year, true, emptyErrorText), (errorYear = "empty"))
+    : (toggleError(year), (errorYear = ""));
 };
 
 // Error Type 2 = invalid error
@@ -43,22 +43,25 @@ const errorEmpty = function () {
 const invalidErrorText = "Must be a valid ";
 
 const errorInvalid = function () {
-  let error = false;
+  Number(day.value) >= 0 && Number(day.value) <= 31
+    ? errorDay === "empty"
+      ? console.log("hello")
+      : (toggleError(day), (errorDay = ""))
+    : (toggleError(day, true, invalidErrorText + "day"),
+      (errorDay = "invalid"));
 
-  day.value >= 0 && day.value <= 31
-    ? (toggleError(day), (error = false))
-    : toggleError(day, true, invalidErrorText + "day"),
-    (error = true);
-  (month.value >= 0) & (month.value <= 12)
-    ? (toggleError(month), (error = false))
-    : toggleError(month, true, invalidErrorText + "month"),
-    (error = true);
-  year.value >= 1970 && year.value <= new Date().getFullYear()
-    ? (toggleError(year), (error = false))
-    : toggleError(year, true, "Must be in the past"),
-    (error = true);
+  Number(month.value) >= 0 && Number(month.value) <= 12
+    ? errorMonth === "empty"
+      ? console.log("hello")
+      : (toggleError(month), (errorMonth = ""))
+    : (toggleError(month, true, invalidErrorText + "month"),
+      (errorMonth = "invalid"));
 
-  return error;
+  Number(year.value) <= new Date().getFullYear()
+    ? errorYear === "empty"
+      ? console.log("hello")
+      : (toggleError(year), (errorYear = ""))
+    : (toggleError(year, true, "Must be in the past"), (errorYear = "invalid"));
 };
 
 // toggleError
@@ -66,7 +69,6 @@ const errorInvalid = function () {
 const toggleError = function (el, errorState = false, errorText = "") {
   const label = el.parentElement.querySelector("label");
   const errorTextCont = el.parentElement.querySelector(".error-text");
-
   if (errorState) {
     el.classList.add("border-primary-lightRed");
     el.classList.remove("border-neutral-lightGrey");

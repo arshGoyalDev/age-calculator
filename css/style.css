@@ -2266,10 +2266,6 @@ video {
   -moz-osx-font-smoothing: auto;
 }
 
-.opacity-0{
-  opacity: 0;
-}
-
 .bg-blend-normal{
   background-blend-mode: normal;
 }
@@ -2713,10 +2709,6 @@ input[type=number] {
 }
 
 @media (min-width: 768px){
-  .md\:-mt-3{
-    margin-top: -0.75rem;
-  }
-
   .md\:mb-0{
     margin-bottom: 0px;
   }
