@@ -16,8 +16,7 @@ calBtn.addEventListener("click", (e) => {
   errorEmptyYear();
   errorInvalid();
 
-  
-
+  errorWholeForm();
 });
 
 // Error Type 1 = empty error
@@ -59,6 +58,47 @@ const errorInvalid = function () {
   Number(year.value) <= new Date().getFullYear()
     ? errorEmptyYear()
     : (toggleError(year, true, "Must be in the past"), (errorYear = true));
+};
+
+// Error Type 3 = whole form error
+
+const errorWholeForm = function () {
+  const labelDay = day.parentElement.querySelector("label");
+  const labelMonth = month.parentElement.querySelector("label");
+  const labelYear = year.parentElement.querySelector("label");
+  const errorTextCont = day.parentElement.querySelector(".error-text");
+
+  if (Number(day.value) <= new Date(year.value, month.value, 0).getDate()) {
+    toggleErrorWholeForm(labelDay, labelMonth, labelYear, errorTextCont, "");
+  } else {
+    toggleErrorWholeForm(
+      labelDay,
+      labelMonth,
+      labelYear,
+      errorTextCont,
+      "Must be a valid date"
+    );
+  }
+};
+
+const toggleErrorWholeForm = function (labelDay, labelMonth, labelYear, errorTextCont, errorText) {
+  day.classList.toggle("border-primary-lightRed");
+  day.classList.toggle("border-neutral-lightGrey");
+
+  month.classList.toggle("border-primary-lightRed");
+  month.classList.toggle("border-neutral-lightGrey");
+
+  year.classList.toggle("border-primary-lightRed");
+  year.classList.toggle("border-neutral-lightGrey");
+
+  labelDay.classList.toggle("text-neutral-smokeyGray");
+  labelDay.classList.toggle("text-primary-lightRed");
+  labelMonth.classList.toggle("text-neutral-smokeyGray");
+  labelMonth.classList.toggle("text-primary-lightRed");
+  labelYear.classList.toggle("text-neutral-smokeyGray");
+  labelYear.classList.toggle("text-primary-lightRed");
+
+  errorTextCont.textContent = errorText;
 };
 
 // toggleError
