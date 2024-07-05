@@ -10,13 +10,21 @@ let errorDay = false;
 let errorMonth = false;
 let errorYear = false;
 
-calBtn.addEventListener("click", (e) => {
+const checkError = function () {
   errorEmptyDay();
   errorEmptyMonth();
   errorEmptyYear();
   errorInvalid();
 
-  errorWholeForm();
+  if (!errorDay && !errorMonth && !errorYear) {
+    errorWholeForm();
+  }
+};
+
+calBtn.addEventListener("click", (e) => {
+  checkError();
+
+  // calculateAge()
 });
 
 // Error Type 1 = empty error
@@ -68,9 +76,23 @@ const errorWholeForm = function () {
   const labelYear = year.parentElement.querySelector("label");
   const errorTextCont = day.parentElement.querySelector(".error-text");
 
-  if (Number(day.value) <= new Date(year.value, month.value, 0).getDate()) {
-    toggleErrorWholeForm(labelDay, labelMonth, labelYear, errorTextCont, "");
+  const numberOfDays = new Date(
+    Number(year.value),
+    Number(month.value),
+    0
+  ).getDate();
+
+  if (Number(day.value) <= numberOfDays) {
+    errorDay = false;
+    errorMonth = false;
+    errorYear = false;
+    if (labelDay.classList.contains("text-primary-lightRed")) {
+      toggleErrorWholeForm(labelDay, labelMonth, labelYear, errorTextCont, "");
+    }
   } else {
+    errorDay = true;
+    errorMonth = true;
+    errorYear = true;
     toggleErrorWholeForm(
       labelDay,
       labelMonth,
@@ -81,7 +103,13 @@ const errorWholeForm = function () {
   }
 };
 
-const toggleErrorWholeForm = function (labelDay, labelMonth, labelYear, errorTextCont, errorText) {
+const toggleErrorWholeForm = function (
+  labelDay,
+  labelMonth,
+  labelYear,
+  errorTextCont,
+  errorText
+) {
   day.classList.toggle("border-primary-lightRed");
   day.classList.toggle("border-neutral-lightGrey");
 
