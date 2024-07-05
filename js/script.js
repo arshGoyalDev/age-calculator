@@ -6,36 +6,40 @@ const year = document.querySelector("#year");
 
 const calBtn = document.querySelector(".cal-btn");
 
-let errorDay = "";
-let errorMonth = "";
-let errorYear = "";
+let errorDay = false;
+let errorMonth = false;
+let errorYear = false;
 
 calBtn.addEventListener("click", (e) => {
-  errorEmpty();
+  errorEmptyDay();
+  errorEmptyMonth();
+  errorEmptyYear();
   errorInvalid();
-  // if (errorEmpty()) {
-  //   console.log("error");
-  // } else if (errorInvalid()) {
-  //     console.log("error");
-  // } else {
-  //   console.log("age");
-  // }
+
+  
+
 });
 
 // Error Type 1 = empty error
 
 const emptyErrorText = "This field is required";
 
-const errorEmpty = function () {
+const errorEmptyDay = function () {
   day.value === ""
-    ? (toggleError(day, true, emptyErrorText), (errorDay = "empty"))
-    : (toggleError(day), (errorDay = ""));
+    ? (toggleError(day, true, emptyErrorText), (errorDay = true))
+    : (toggleError(day), (errorDay = false));
+};
+
+const errorEmptyMonth = function () {
   month.value === ""
-    ? (toggleError(month, true, emptyErrorText), (errorMonth = "empty"))
-    : (toggleError(month), (errorMonth = ""));
+    ? (toggleError(month, true, emptyErrorText), (errorMonth = true))
+    : (toggleError(month), (errorMonth = false));
+};
+
+const errorEmptyYear = function () {
   year.value === ""
-    ? (toggleError(year, true, emptyErrorText), (errorYear = "empty"))
-    : (toggleError(year), (errorYear = ""));
+    ? (toggleError(year, true, emptyErrorText), (errorYear = false))
+    : (toggleError(year), (errorYear = false));
 };
 
 // Error Type 2 = invalid error
@@ -44,24 +48,17 @@ const invalidErrorText = "Must be a valid ";
 
 const errorInvalid = function () {
   Number(day.value) >= 0 && Number(day.value) <= 31
-    ? errorDay === "empty"
-      ? console.log("hello")
-      : (toggleError(day), (errorDay = ""))
-    : (toggleError(day, true, invalidErrorText + "day"),
-      (errorDay = "invalid"));
+    ? errorEmptyDay()
+    : (toggleError(day, true, invalidErrorText + "day"), (errorDay = true));
 
   Number(month.value) >= 0 && Number(month.value) <= 12
-    ? errorMonth === "empty"
-      ? console.log("hello")
-      : (toggleError(month), (errorMonth = ""))
+    ? errorEmptyMonth()
     : (toggleError(month, true, invalidErrorText + "month"),
-      (errorMonth = "invalid"));
+      (errorMonth = true));
 
   Number(year.value) <= new Date().getFullYear()
-    ? errorYear === "empty"
-      ? console.log("hello")
-      : (toggleError(year), (errorYear = ""))
-    : (toggleError(year, true, "Must be in the past"), (errorYear = "invalid"));
+    ? errorEmptyYear()
+    : (toggleError(year, true, "Must be in the past"), (errorYear = true));
 };
 
 // toggleError
