@@ -87,7 +87,7 @@ const errorInvalid = function () {
     : (toggleError(month, true, invalidErrorText + "month"),
       (errorMonth = true));
 
-  Number(year.value) <= new Date().getFullYear()
+  Number(year.value) <= (new Date().getFullYear() - 1)
     ? errorEmptyYear()
     : (toggleError(year, true, "Must be in the past"), (errorYear = true));
 };
@@ -127,6 +127,30 @@ const errorWholeForm = function () {
   }
 };
 
+// toggleError
+
+// for error 1 & error 2
+
+const toggleError = function (el, errorState = false, errorText = "") {
+  const label = el.parentElement.querySelector("label");
+  const errorTextCont = el.parentElement.querySelector(".error-text");
+  if (errorState) {
+    el.classList.add("border-primary-lightRed");
+    el.classList.remove("border-neutral-lightGrey");
+    label.classList.add("text-primary-lightRed");
+    label.classList.remove("text-neutral-smokeyGray");
+  } else {
+    el.classList.remove("border-primary-lightRed");
+    el.classList.add("border-neutral-lightGrey");
+    label.classList.remove("text-primary-lightRed");
+    label.classList.add("text-neutral-smokeyGray");
+  }
+
+  errorTextCont.textContent = errorText;
+};
+
+// for error 3
+
 const toggleErrorWholeForm = function (
   labelDay,
   labelMonth,
@@ -149,26 +173,6 @@ const toggleErrorWholeForm = function (
   labelMonth.classList.toggle("text-primary-lightRed");
   labelYear.classList.toggle("text-neutral-smokeyGray");
   labelYear.classList.toggle("text-primary-lightRed");
-
-  errorTextCont.textContent = errorText;
-};
-
-// toggleError
-
-const toggleError = function (el, errorState = false, errorText = "") {
-  const label = el.parentElement.querySelector("label");
-  const errorTextCont = el.parentElement.querySelector(".error-text");
-  if (errorState) {
-    el.classList.add("border-primary-lightRed");
-    el.classList.remove("border-neutral-lightGrey");
-    label.classList.add("text-primary-lightRed");
-    label.classList.remove("text-neutral-smokeyGray");
-  } else {
-    el.classList.remove("border-primary-lightRed");
-    el.classList.add("border-neutral-lightGrey");
-    label.classList.remove("text-primary-lightRed");
-    label.classList.add("text-neutral-smokeyGray");
-  }
 
   errorTextCont.textContent = errorText;
 };
