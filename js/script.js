@@ -24,14 +24,16 @@ const checkError = function () {
 calBtn.addEventListener("click", (e) => {
   checkError();
 
-  calculateAge();
+  if (!errorDay && !errorMonth & !errorYear) {
+    calculateAge();
+  }
 });
 
 // func() to calculate age
 
-const daysDisplay = document.querySelector("");
-const monthsDisplay = document.querySelector("");
-const yearsDisplay = document.querySelector("");
+const daysDisplay = document.querySelector("#days-display");
+const monthsDisplay = document.querySelector("#months-display");
+const yearsDisplay = document.querySelector("#years-display");
 
 const calculateAge = function () {
   const dateOfBirth = `${month.value}-${day.value}-${year.value}`;
