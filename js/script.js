@@ -24,8 +24,30 @@ const checkError = function () {
 calBtn.addEventListener("click", (e) => {
   checkError();
 
-  // calculateAge()
+  calculateAge();
 });
+
+// func() to calculate age
+
+const daysDisplay = document.querySelector("");
+const monthsDisplay = document.querySelector("");
+const yearsDisplay = document.querySelector("");
+
+const calculateAge = function () {
+  const dateOfBirth = `${month.value}-${day.value}-${year.value}`;
+
+  const dateOfBirthTime = new Date(dateOfBirth).getTime();
+  const currentTime = new Date().getTime();
+
+  const diff = new Date(currentTime - dateOfBirthTime);
+  const resultDays = Number(Math.abs(diff.getDate()) - 1);
+  const resultMonths = Number(Math.abs(diff.getMonth() + 1) - 1);
+  const resultYears = Number(Math.abs(diff.getFullYear()) - 1970);
+
+  daysDisplay.textContent = resultDays;
+  monthsDisplay.textContent = resultMonths;
+  yearsDisplay.textContent = resultYears;
+};
 
 // Error Type 1 = empty error
 
