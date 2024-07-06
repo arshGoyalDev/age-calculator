@@ -35,6 +35,10 @@ const daysDisplay = document.querySelector("#days-display");
 const monthsDisplay = document.querySelector("#months-display");
 const yearsDisplay = document.querySelector("#years-display");
 
+const daysText = document.querySelector("#days-text");
+const monthsText = document.querySelector("#months-text");
+const yearsText = document.querySelector("#years-text");
+
 const calculateAge = function () {
   const dateOfBirth = `${month.value}-${day.value}-${year.value}`;
 
@@ -42,9 +46,18 @@ const calculateAge = function () {
   const currentTime = new Date().getTime();
 
   const diff = new Date(currentTime - dateOfBirthTime);
+
   const resultDays = Number(Math.abs(diff.getDate()) - 1);
   const resultMonths = Number(Math.abs(diff.getMonth() + 1) - 1);
   const resultYears = Number(Math.abs(diff.getFullYear()) - 1970);
+
+  resultDays === 1 ? daysText.textContent = "day" : daysText.textContent = "days"
+  resultMonths === 1 ? monthsText.textContent = "month" : monthsText.textContent = "months"
+  resultYears === 1 ? yearsText.textContent = "year" : yearsText.textContent = "years"
+
+  daysDisplay.classList.remove("md:tracking-xl")
+  monthsDisplay.classList.remove("md:tracking-xl")
+  yearsDisplay.classList.remove("md:tracking-xl")
 
   daysDisplay.textContent = resultDays;
   monthsDisplay.textContent = resultMonths;
