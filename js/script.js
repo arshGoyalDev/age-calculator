@@ -30,7 +30,6 @@ calBtn.addEventListener("click", (e) => {
 });
 
 // func() to calculate age
-
 const daysDisplay = document.querySelector("#days-display");
 const monthsDisplay = document.querySelector("#months-display");
 const yearsDisplay = document.querySelector("#years-display");
@@ -39,7 +38,19 @@ const daysText = document.querySelector("#days-text");
 const monthsText = document.querySelector("#months-text");
 const yearsText = document.querySelector("#years-text");
 
+let dayCount = 0;
+let monthCount = 0;
+let yearCount = 0;
+
+let ageDays = 0;
+let ageMonths = 0;
+let ageYears = 0;
+
 const calculateAge = function () {
+  dayCount = 0;
+  monthCount = 0;
+  yearCount = 0;
+
   const dateOfBirth = `${month.value}-${day.value}-${year.value}`;
 
   const dateOfBirthTime = new Date(dateOfBirth).getTime();
@@ -47,21 +58,37 @@ const calculateAge = function () {
 
   const diff = new Date(currentTime - dateOfBirthTime);
 
-  const resultDays = Number(Math.abs(diff.getDate()) - 1);
-  const resultMonths = Number(Math.abs(diff.getMonth() + 1) - 1);
-  const resultYears = Number(Math.abs(diff.getFullYear()) - 1970);
+  ageDays = Number(Math.abs(diff.getDate()) - 1);
+  ageMonths = Number(Math.abs(diff.getMonth() + 1) - 1);
+  ageYears = Number(Math.abs(diff.getFullYear()) - 1970);
 
-  resultDays === 1 ? daysText.textContent = "day" : daysText.textContent = "days"
-  resultMonths === 1 ? monthsText.textContent = "month" : monthsText.textContent = "months"
-  resultYears === 1 ? yearsText.textContent = "year" : yearsText.textContent = "years"
+  ageDays === 1
+    ? (daysText.textContent = "day")
+    : (daysText.textContent = "days");
+  ageMonths === 1
+    ? (monthsText.textContent = "month")
+    : (monthsText.textContent = "months");
+  ageYears === 1
+    ? (yearsText.textContent = "year")
+    : (yearsText.textContent = "years");
 
-  daysDisplay.classList.remove("md:tracking-xl")
-  monthsDisplay.classList.remove("md:tracking-xl")
-  yearsDisplay.classList.remove("md:tracking-xl")
+  daysDisplay.classList.remove("md:tracking-xl");
+  monthsDisplay.classList.remove("md:tracking-xl");
+  yearsDisplay.classList.remove("md:tracking-xl");
 
-  daysDisplay.textContent = resultDays;
-  monthsDisplay.textContent = resultMonths;
-  yearsDisplay.textContent = resultYears;
+  setInterval(animation, 50);
+};
+
+// animation
+
+const animation = function () {
+  dayCount < ageDays ? dayCount++ : (dayCount = ageDays);
+  monthCount < ageMonths ? monthCount++ : (monthCount = ageMonths);
+  yearCount < ageYears ? yearCount++ : (yearCount = ageYears);
+
+  daysDisplay.textContent = dayCount;
+  monthsDisplay.textContent = monthCount;
+  yearsDisplay.textContent = yearCount;
 };
 
 // Error Type 1 = empty error
@@ -100,7 +127,7 @@ const errorInvalid = function () {
     : (toggleError(month, true, invalidErrorText + "month"),
       (errorMonth = true));
 
-  Number(year.value) <= (new Date().getFullYear() - 1)
+  Number(year.value) <= new Date().getFullYear() - 1
     ? errorEmptyYear()
     : (toggleError(year, true, "Must be in the past"), (errorYear = true));
 };
