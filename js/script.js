@@ -1,25 +1,10 @@
-// calculate age
+// calculate btn
 
 const day = document.querySelector("#day");
 const month = document.querySelector("#month");
 const year = document.querySelector("#year");
 
 const calBtn = document.querySelector(".cal-btn");
-
-let errorDay = false;
-let errorMonth = false;
-let errorYear = false;
-
-const checkError = function () {
-  errorEmptyDay();
-  errorEmptyMonth();
-  errorEmptyYear();
-  errorInvalid();
-
-  if (!errorDay && !errorMonth && !errorYear) {
-    errorWholeForm();
-  }
-};
 
 calBtn.addEventListener("click", (e) => {
   checkError();
@@ -29,7 +14,8 @@ calBtn.addEventListener("click", (e) => {
   }
 });
 
-// func() to calculate age
+// calculate age
+
 const daysDisplay = document.querySelector("#days-display");
 const monthsDisplay = document.querySelector("#months-display");
 const yearsDisplay = document.querySelector("#years-display");
@@ -45,6 +31,8 @@ let yearCount = 0;
 let ageDays = 0;
 let ageMonths = 0;
 let ageYears = 0;
+
+// func() to calculate age
 
 const calculateAge = function () {
   dayCount = 0;
@@ -89,6 +77,25 @@ const animation = function () {
   daysDisplay.textContent = dayCount;
   monthsDisplay.textContent = monthCount;
   yearsDisplay.textContent = yearCount;
+};
+
+// Errors
+
+let errorDay = false;
+let errorMonth = false;
+let errorYear = false;
+
+// func() to check error
+
+const checkError = function () {
+  errorEmptyDay();
+  errorEmptyMonth();
+  errorEmptyYear();
+  errorInvalid();
+
+  if (!errorDay && !errorMonth && !errorYear) {
+    errorWholeForm();
+  }
 };
 
 // Error Type 1 = empty error
